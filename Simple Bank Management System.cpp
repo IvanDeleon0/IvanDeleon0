@@ -1,7 +1,18 @@
 
 #include <iostream>
 using namespace std;
+#include <chrono>
+#include <thread> 
 
+// just loading animation
+void loading (){
+  for (int i =1; i<=5 ; i++){
+    cout <<".";
+    cout.flush();
+    this_thread::sleep_for(chrono:: milliseconds(450));
+  }
+  cout<<endl;// so the other cout outside void will be on new line
+}
 int main() 
 {
   //local Variables
@@ -9,7 +20,9 @@ int main()
   double currentAmount = 0.0 , depositAmount = 0.0 , withdrawAmount = 0.0;
   
   while(number != 4){
-    cout << "\nWelcome to Carl Bank\nHow can we help you?\n\n ";
+    this_thread::sleep_for(chrono::seconds(1));//delay 1 sec
+    cout << "===================================\n";
+    cout << "\nWelcome to Carl Bank\nHow can we help you?\n\n";
     cout << "1. Deposit Money\n";
     cout << "2. Withdraw Money\n";
     cout << "3. Check Balance\n";
@@ -28,47 +41,84 @@ int main()
       cout << "\nYou chose to deposit money! \n";
       cout << "Amount: ";
       cin >> depositAmount;
+      if (depositAmount > 30){
       
-      currentAmount += depositAmount;// adds the moneydeposited to tthe current money in the account
-      
-      cout << "\n===================================\n\n";
-      cout << "\nYour current money is "<< currentAmount <<endl;
-      cout << "\n===================================\n\n";
-    }
-    
-    else if (number == 2){
-     cout << "\nYou chose to Withdraw Money! \n";
-     cout << "You're Current Money is "<< currentAmount <<endl;
-     cout << "===================================\n";
-     cout << "Amount to Wihdraw: ";
-     cin >>withdrawAmount;
-     
-     if (withdrawAmount > currentAmount){
-       cout << "\n==================================\n\n";
-       cout << "\nYou have Insufficient Funds\n\n";
-       cout << "\n===================================\n\n";
-       continue;// brings back the user to the main menu
-     }
-     else{
-       currentAmount -= withdrawAmount;//deduct the current money to the withdrawal amount
-       
-       cout << "\n===================================\n";
-       //printout the withdrawal amount
-       cout << "\nYou've withdraw " << withdrawAmount;
-       //printout the remaining balance
-       cout << "\nRemaining money is "<< currentAmount<<endl;
-       cout << "\n===================================\n\n";
+        currentAmount += depositAmount;// adds the moneydeposited to tthe current money in the account
+        this_thread::sleep_for(chrono::seconds(2));
+        cout << "\n===================================\n\n";
+        cout << "\nYour current money is "<< currentAmount <<endl;
+        cout << "\n===================================\n\n";
+        continue;
+      }else{
+         loading();
+         cout <<"Invalid Transaction\n\n";
+         cout <<"Must be above 30 deposit amount";
+         this_thread::sleep_for(chrono::seconds(2));
+         continue;
       }
     }
-    else if (number == 3){
+    else if (number == 2) {
+        cout << "\nYou chose to Withdraw Money! \n";
+
+        if (currentAmount == 0) {
+            loading();
+            cout << "You don't have enough balance.\n";
+            loading();
+            continue;
+        } else {
+            cout << "Your Current Money is " << currentAmount << endl;
+            cout << "===================================\n";
+            
+            cout << "Amount to Withdraw: ";
+            cin >> withdrawAmount;
+            
+            // Check if withdrawal is valid
+            if (withdrawAmount > currentAmount) {
+                this_thread::sleep_for(chrono::seconds(2));
+
+                cout << "\n===================================\n\n";
+                cout << "You have Insufficient Funds\n\n";
+                cout << "===================================\n\n";
+                this_thread::sleep_for(chrono::seconds(2));
+                continue; // go back to main menu
+            }
+            else {
+                currentAmount -= withdrawAmount; // deduct amount
+                loading();
+                cout << "\n===================================\n";
+                cout << "You've withdrawn " << withdrawAmount << endl;
+                loading();
+                cout << "Remaining money is " << currentAmount << endl;
+                cout << "===================================\n\n";
+                continue;
+            }
+        }
+      }
+
+    else if (number == 3) {
+      this_thread::sleep_for(chrono::seconds(1));
       cout << "\n===================================\n";
       cout << "\nYou're Current Balance is "<< currentAmount <<endl;// just check the currentAmount
       cout << "\n===================================\n\n";
+      this_thread::sleep_for(chrono::seconds(2));
+      continue;
     }
       
       
-    }
-    cout << "\n\nSuccessful exit\n";
+    
+    loading();
+    cout<<"\nExiting program";
+
+    loading();
+    cout << "\nSuccessful exit\n";
     cout<< "\nThank You for using our Bank.";
+    cout<<endl;
+    cout<<endl;
   } 
-  
+}
+/*update suggestion
+- account creation()
+-sub entry like account receivable etc..()
+-trial balance ()
+-timer delay like loading sequence (/)
+*/
