@@ -3,6 +3,10 @@
 using namespace std;
 #include <chrono>
 #include <thread> 
+#include <iomanip>
+
+
+cout << setprecision(2)<< fixed; // para 2 decimal lang if ever may decimal
 
 // just loading animation
 void loading (){
@@ -116,9 +120,12 @@ int main()
     cout<<endl;
   } 
 }
-/*update suggestion
-- account creation()
--sub entry like account receivable etc..()
+/*
+this program is created because of boredom and practice on coding - ivan  */
+/*
+update suggestion
+- account creation() di ko pa alam toh hehe
+-sub entry like account receivable etc..() soon
 -trial balance ()
 -timer delay like loading sequence (/)
 */
