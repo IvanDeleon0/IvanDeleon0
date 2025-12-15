@@ -6,7 +6,7 @@ using namespace std;
 #include <iomanip>
 
 
-cout << setprecision(2)<< fixed; // para 2 decimal lang if ever may decimal
+
 
 // just loading animation
 void loading (){
@@ -22,6 +22,7 @@ int main()
   //local Variables
   int number =0 ; 
   double currentAmount = 0.0 , depositAmount = 0.0 , withdrawAmount = 0.0;
+  cout << setprecision(2)<< fixed; // para 2 decimal lang if ever may decimal
   
   while(number != 4){
     this_thread::sleep_for(chrono::seconds(1));//delay 1 sec
