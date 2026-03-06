@@ -1,3 +1,49 @@
+/*
+Di ko pa alam yung scope ng record management sys, so eto lang yung nasisimulan ko pa 
+
+
+Features:
+===========================================================================================
+Menu (Interface)
+-View All (/) 
+-Add Record (x)
+-Edit Record (x)
+================================================================================================================================
+
+Di ko alam kung ano decision niyo for SAVING DATA into a file.
+
+(current-this code using vector) Content data will be deleted when the program CLOSED
+--------------------------------------------------------------------------------------------
+(w/ file saving using fstream lib) 
+for context, #include <fstream> ay para sa viewing and writing files 
+However, di pa ako proficient sa utilize netong lib. 
+
+    -by default, it will create and write data in a file and save it. BUT kung re-run mo yung code,  it will OVERWRITE the previous edit
+        like kung naglagay ka ng names and dates sa previous run, mawawala yung mga yon sa re-run ng code, like a fresh start.
+        
+    - there's a way naman para di ma-reset yung data sa loob ng file, 'ios::app'.
+    and  that's all lang alam ko.
+    
+    -when you run the code and natapos na hanggang huli,it will open the file in SOME compilers or you can just manually search it sa local storage mo.
+
+=================================================================================================================================
+
+    
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
 #include <iostream>
 #include <vector>  // dynamic storage
 #include <string>  //for string
@@ -70,6 +116,10 @@ int main(){
     }
 }
 
+
+
+
+//UTILITIES
 void loading(){
     for (int i = 0; i < 101; ++i){
     std::cout<< "\r" << "Loading " <<  i <<"%" <<std::flush;
@@ -83,5 +133,6 @@ void loadingNone(){
 void searchLoading(){
     std::cout <<"Searching. " <<std::flush;
     std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
 
 }
