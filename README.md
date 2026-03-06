@@ -13,6 +13,7 @@
 ## 👨‍💻 About Me
 I am a motivated Information Technology student with a strong interest in software development and problem-solving. As a beginner in the tech industry, I focus on building a solid foundation through academic projects and self-driven learning. I am eager to learn from experienced professionals and contribute to meaningful projects during internships.
 
+In order to start my journey, I joined different organization such as AWS, Google Developer Group of PUP Campus and WorkFlow PH which is associated with AWS. 
 ---
 
 ## 🗂️ About My Repositories
