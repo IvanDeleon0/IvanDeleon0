@@ -1,5 +1,5 @@
 /*
-Di ko pa alam yung scope ng record management sys, so eto lang yung nasisimulan ko pa 
+Di ko pa alam yung scope, yung what kind of record management sys, so eto lang yung nasisimulan ko pa 
 
 
 Features:
@@ -136,3 +136,4 @@ void searchLoading(){
 
 
 }
+
